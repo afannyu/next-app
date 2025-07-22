@@ -16,10 +16,13 @@
 
 ```bash
 .
-├── app/              # Next.js App Router 目录
-├── components/       # 通用组件目录
-├── styles/           # TailwindCSS 全局样式
-├── public/           # 静态资源
-├── utils/            # 工具函数
+├── app/              # Next.js App Router 目录（页面和布局）
+├── components/       # 通用 React 组件
+├── styles/           # 全局样式（TailwindCSS 引用等）
+├── types/            # 全局类型定义（接口、枚举、公共 Props 等）
+├── utils/            # 工具函数 / 方法封装
+├── public/           # 公共静态资源
+├── tailwind.config.ts  # TailwindCSS 配置
 ├── tsconfig.json     # TypeScript 配置
-└── tailwind.config.ts # TailwindCSS 配置
+└── ...
+
