@@ -17,11 +17,18 @@
 ```bash
 .
 ├── app/              # Next.js App Router 目录（页面和布局）
-├── components/       # 通用 React 组件
-├── styles/           # 全局样式（TailwindCSS 引用等）
+├── components/
+│   ├── ui/                 # 通用组件（Button、Modal 等）
+│   ├── layout/             # 页面布局组件
+│   └── features/           # 与业务强相关的组件（如 TaskList）
+├── hooks/            # 自定义hooks
+├── lib/              # 业务逻辑函数、状态转换器（如 reducer）
 ├── types/            # 全局类型定义（接口、枚举、公共 Props 等）
-├── utils/            # 工具函数 / 方法封装
+├── services/         # 封装和管理 API 请求
+├── constants/        # 枚举、提示、配置常量
+├── utils/            # 通用工具函数 / 方法封装
 ├── public/           # 公共静态资源
+├── styles/           # 全局样式（TailwindCSS 引用等）
 ├── tailwind.config.ts  # TailwindCSS 配置
 ├── tsconfig.json     # TypeScript 配置
 └── ...
