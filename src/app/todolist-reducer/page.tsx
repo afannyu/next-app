@@ -1,10 +1,3 @@
-/**
- * 使用 reducer 管理状态与直接设置状态略有不同。
- * 它不是通过设置状态来告诉 React “要做什么”，而是通过事件处理程序 dispatch 一个 “action” 来指明 “用户刚刚做了什么”。
- * （而状态更新逻辑则保存在其他地方！）因此，我们不再通过事件处理器直接 “设置 task”，
- * 而是 dispatch 一个 “添加/修改/删除任务” 的 action。这更加符合用户的思维。
- */
-
 'use client';
 
 import React, { useReducer } from 'react';
@@ -44,8 +37,23 @@ function TodoListReducer() {
     })
   };
 
+  // 渲染引用内容
+  const renderContent = () => {
+    return (
+      <blockquote className="p-4 mb-4 border-l-4 border-blue-500 bg-blue-50 text-gray-700">
+        <p>
+          使用 reducer 管理状态与直接设置状态略有不同。<br />
+          它不是通过设置状态来告诉 React “要做什么”，而是通过事件处理程序 dispatch 一个 “action” 来指明 “用户刚刚做了什么”。<br />
+          （而状态更新逻辑则保存在其他地方！）因此，我们不再通过事件处理器直接 “设置 task”，<br />
+          而是 dispatch 一个 “添加/修改/删除任务” 的 action。这更加符合用户的思维。
+        </p>
+      </blockquote>
+    )
+  }
+
   return (
     <>
+      {renderContent()}
       <AddTask handleAdd={handleAdd} />
       <TaskList taskList={taskList} handleEdit={handleEdit} handleDelete={handleDelete} />
     </>
