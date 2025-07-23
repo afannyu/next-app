@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <SidebarProvider>
           <AppSidebar />
-          <main style={{ margin: '12px' }}>
+          <main className="m-3">
             <SidebarTrigger />
             {children}
           </main>

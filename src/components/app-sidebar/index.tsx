@@ -2,7 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { ChevronRight, ChevronDown } from "lucide-react";
+import clsx from "clsx";
 import {
   Sidebar,
   SidebarContent,
@@ -26,7 +27,6 @@ const items = [
       { title: "state", url: "/todolist" },
       { title: "reducer", url: "/todolist-reducer" },
       { title: "reducer和context", url: "/todolist-all" },
-      { title: "test", url: "/test" },
     ],
   },
 ];
@@ -60,7 +60,7 @@ export default function AppSidebar() {
                     <SidebarMenuButton
                       onClick={(e) => {
                         if (hasChildren) {
-                          e.preventDefault(); // 阻止跳转，改为展开收起
+                          e.preventDefault(); // 阻止跳转
                           handleParentClick(item.title);
                         }
                       }}
@@ -68,11 +68,22 @@ export default function AppSidebar() {
                     >
                       <Link
                         href={item.url}
-                        className={`flex items-center ${
-                          isActive ? "font-bold" : ""
-                        }`}
+                        className={clsx(
+                          "flex items-center justify-between w-full px-2 py-1.5 text-sm rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors",
+                          {
+                            "font-bold text-black dark:text-white": isActive,
+                            "text-gray-600 dark:text-gray-300": !isActive,
+                          }
+                        )}
                       >
                         <span>{item.title}</span>
+                        {hasChildren && (
+                          isOpen ? (
+                            <ChevronDown className="w-4 h-4" />
+                          ) : (
+                            <ChevronRight className="w-4 h-4" />
+                          )
+                        )}
                       </Link>
                     </SidebarMenuButton>
 
@@ -85,9 +96,8 @@ export default function AppSidebar() {
                               <SidebarMenuButton asChild>
                                 <Link
                                   href={child.url}
-                                  className={`block pl-6 ${
-                                    isChildActive ? "font-bold" : ""
-                                  }`}
+                                  className={`block pl-6 ${isChildActive ? "font-bold" : ""
+                                    }`}
                                 >
                                   {child.title}
                                 </Link>
