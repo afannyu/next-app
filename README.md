@@ -18,9 +18,9 @@
 .
 ├── app/              # Next.js App Router 目录（页面和布局）
 ├── components/
-│   ├── ui/                 # 通用组件（Button、Modal 等）
-│   ├── layout/             # 页面布局组件
-│   └── features/           # 与业务强相关的组件（如 TaskList）
+│   ├── ui/           # 通用组件（Button、Modal 等）
+│   ├── layout/       # 页面布局组件
+│   └── features/     # 与业务强相关的组件（如 TaskList）
 ├── hooks/            # 自定义hooks
 ├── lib/              # 业务逻辑函数、状态转换器（如 reducer）
 ├── types/            # 全局类型定义（接口、枚举、公共 Props 等）
