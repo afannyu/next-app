@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSONP Demo</title>
+</head>
+<body>
+  <h1>JSONP Demo</h1>
+  <script>
+    // 定义全局回调函数
+    function handleData(data) {
+      console.log('收到的数据：', data);
+      document.body.innerHTML += `<p>名字：${data.name}, 年龄：${data.age}</p>`;
+    }
+
+    // 动态创建 script 标签请求 JSONP
+    const script = document.createElement('script');
+    script.src = 'http://localhost:3000/getData?callback=handleData';
+    document.body.appendChild(script);
+  </script>
+</body>
+</html>

@@ -29,6 +29,10 @@ const items = [
       { title: "reducer和context", url: "/todolist-all" },
     ],
   },
+  {
+    title: "拖拽式页面编辑器",
+    url: "/lowcode-editor",
+  },
 ];
 
 export default function AppSidebar() {
